@@ -4,24 +4,24 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Aayush — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Lato:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#02020e;
-  --accent:#00d4ff;
-  --accent2:#7c3aed;
-  --accent3:#ff6b6b;
-  --text:#e4e4f0;
-  --text2:#8888a8;
-  --glass:rgba(255,255,255,0.035);
-  --gb:rgba(255,255,255,0.07);
+  --bg:#0d1117;
+  --accent:#00d9ff;
+  --accent2:#1a4d5c;
+  --accent3:#a8d8e8;
+  --text:#e8f0f5;
+  --text2:#8a9aaa;
+  --glass:rgba(0,217,255,0.04);
+  --gb:rgba(0,217,255,0.1);
   --r:14px;--r2:22px;
 }
 html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent2) var(--bg)}
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-thumb{background:var(--accent2);border-radius:2px}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;line-height:1.65}
+body{background:var(--bg);color:var(--text);font-family:'Lato',sans-serif;overflow-x:hidden;line-height:1.65}
 
 /* CURSOR */
 #cur{position:fixed;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen;transition:.08s}
@@ -38,7 +38,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;ove
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:800;padding:1.1rem 3.5rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(2,2,14,.65);border-bottom:1px solid rgba(255,255,255,.055);transition:.3s}
 nav.s{padding:.8rem 3.5rem;background:rgba(2,2,14,.88)}
-.nlogo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:-.04em;background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;cursor:pointer}
+.nlogo{font-family:'Playfair Display',sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:-.04em;background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;cursor:pointer}
 .nlinks{display:flex;gap:2.2rem;list-style:none}
 .nlinks a{color:var(--text2);text-decoration:none;font-size:.875rem;letter-spacing:.04em;position:relative;transition:.2s}
 .nlinks a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--accent);transition:.3s}
@@ -49,7 +49,7 @@ nav.s{padding:.8rem 3.5rem;background:rgba(2,2,14,.88)}
 .hburg span{width:22px;height:1.5px;background:var(--text);border-radius:1px;transition:.3s}
 .mob-nav{position:fixed;inset:0;background:rgba(2,2,14,.97);z-index:799;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:.3s;backdrop-filter:blur(24px)}
 .mob-nav.open{opacity:1;pointer-events:all}
-.mob-nav a{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text2);text-decoration:none;transition:.2s}
+.mob-nav a{font-family:'Playfair Display',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text2);text-decoration:none;transition:.2s}
 .mob-nav a:hover{color:var(--accent)}
 
 /* ══ ASTRONAUT — FIXED PERSISTENT TRAVELLER ══ */
@@ -94,14 +94,14 @@ section:nth-child(even){background:rgba(5,5,22,.76)}
 
 /* HERO */
 .hero-left{z-index:5;position:relative}
-.hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,212,255,.07);border:1px solid rgba(0,212,255,.18);border-radius:50px;padding:.3rem .95rem;font-size:.78rem;color:var(--accent);letter-spacing:.07em;margin-bottom:1.8rem;font-family:'DM Mono',monospace}
+.hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,212,255,.07);border:1px solid rgba(0,212,255,.18);border-radius:50px;padding:.3rem .95rem;font-size:.78rem;color:var(--accent);letter-spacing:.07em;margin-bottom:1.8rem;font-family:'IBM Plex Mono',monospace}
 .hpulse{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
-h1.big{font-family:'Syne',sans-serif;font-size:clamp(3rem,5.5vw,5.2rem);font-weight:800;line-height:1.04;letter-spacing:-.045em;margin-bottom:.6rem}
+h1.big{font-family:'Playfair Display',sans-serif;font-size:clamp(3rem,5.5vw,5.2rem);font-weight:800;line-height:1.04;letter-spacing:-.045em;margin-bottom:.6rem}
 h1.big .l1{color:var(--text);display:block}
 h1.big .l2{background:linear-gradient(130deg,var(--accent),var(--accent2) 55%,var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
 .hero-roles{display:flex;gap:.5rem;flex-wrap:wrap;margin:.8rem 0 1.4rem}
-.hrole{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:5px;padding:.22rem .7rem;font-size:.78rem;color:var(--text2);font-family:'DM Mono',monospace;letter-spacing:.04em}
+.hrole{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:5px;padding:.22rem .7rem;font-size:.78rem;color:var(--text2);font-family:'IBM Plex Mono',monospace;letter-spacing:.04em}
 .hero-desc{font-size:1.05rem;color:var(--text2);line-height:1.82;max-width:500px;margin-bottom:2.4rem}
 .hero-desc em{font-style:normal;color:var(--text)}
 .btns{display:flex;gap:.85rem;flex-wrap:wrap}
@@ -110,7 +110,7 @@ h1.big .l2{background:linear-gradient(130deg,var(--accent),var(--accent2) 55%,va
 .btn-o{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.1);padding:.82rem 2.1rem;border-radius:50px;font-size:.92rem;cursor:pointer;transition:.22s;text-decoration:none;display:inline-block;backdrop-filter:blur(6px)}
 .btn-o:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,212,255,.05)}
 .hero-stats{display:flex;gap:2.5rem;margin-top:2.8rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.06)}
-.hstat-n{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;display:block}
+.hstat-n{font-family:'Playfair Display',sans-serif;font-size:2rem;font-weight:800;display:block}
 .hstat-l{font-size:.78rem;color:var(--text2);letter-spacing:.05em}
 .hero-right{z-index:5;position:relative;height:560px;display:flex;align-items:center;justify-content:center}
 
@@ -126,8 +126,8 @@ h1.big .l2{background:linear-gradient(130deg,var(--accent),var(--accent2) 55%,va
 .spin-ring{position:absolute;animation:orspin 30s linear infinite reverse}
 
 /* SECTION LABELS */
-.stag{display:inline-block;background:rgba(0,212,255,.07);border:1px solid rgba(0,212,255,.14);border-radius:4px;padding:.22rem .8rem;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.1em;margin-bottom:1rem}
-.stitle{font-family:'Syne',sans-serif;font-size:clamp(2rem,3.5vw,2.9rem);font-weight:800;letter-spacing:-.035em;line-height:1.1;margin-bottom:.85rem}
+.stag{display:inline-block;background:rgba(0,212,255,.07);border:1px solid rgba(0,212,255,.14);border-radius:4px;padding:.22rem .8rem;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.1em;margin-bottom:1rem}
+.stitle{font-family:'Playfair Display',sans-serif;font-size:clamp(2rem,3.5vw,2.9rem);font-weight:800;letter-spacing:-.035em;line-height:1.1;margin-bottom:.85rem}
 .stitle span{background:linear-gradient(130deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .ssub{color:var(--text2);font-size:1rem;line-height:1.82;max-width:540px;margin-bottom:3.5rem}
 
@@ -149,11 +149,11 @@ h1.big .l2{background:linear-gradient(130deg,var(--accent),var(--accent2) 55%,va
 .pimg{height:170px;display:flex;align-items:center;justify-content:center;font-size:2.6rem;position:relative;overflow:hidden}
 .pimg-bg{position:absolute;inset:0;opacity:.7}
 .pbody{padding:1.4rem;position:relative;z-index:1}
-.pnum{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--accent);opacity:.6;margin-bottom:.4rem}
-.ptitle{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:.5rem}
+.pnum{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--accent);opacity:.6;margin-bottom:.4rem}
+.ptitle{font-family:'Playfair Display',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:.5rem}
 .pdesc{font-size:.86rem;color:var(--text2);line-height:1.72;margin-bottom:1rem}
 .ptags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.9rem}
-.ptag{background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);border-radius:4px;padding:.18rem .55rem;font-family:'DM Mono',monospace;font-size:.7rem;color:#a78bfa}
+.ptag{background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);border-radius:4px;padding:.18rem .55rem;font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:#a78bfa}
 .plink{color:var(--accent);font-size:.82rem;text-decoration:none;font-weight:500;transition:.2s}
 .plink:hover{letter-spacing:.04em}
 
@@ -162,12 +162,12 @@ h1.big .l2{background:linear-gradient(130deg,var(--accent),var(--accent2) 55%,va
 .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;margin-bottom:2rem}
 .scard{background:var(--glass);border:1px solid var(--gb);border-radius:var(--r2);padding:1.8rem;position:relative;overflow:hidden}
 .scard::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at top right,var(--sc,rgba(0,212,255,.06)),transparent 65%)}
-.splat{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;margin-bottom:.7rem;display:flex;align-items:center;gap:.45rem}
+.splat{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;margin-bottom:.7rem;display:flex;align-items:center;gap:.45rem}
 .sdot{width:5px;height:5px;border-radius:50%}
-.snum{font-family:'Syne',sans-serif;font-size:3.2rem;font-weight:800;line-height:1}
+.snum{font-family:'Playfair Display',sans-serif;font-size:3.2rem;font-weight:800;line-height:1}
 .slabel{font-size:.82rem;color:var(--text2);margin-top:.25rem}
 .ssub-g{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1.3rem}
-.ssub-n{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:700;text-align:center}
+.ssub-n{font-family:'Playfair Display',sans-serif;font-size:1.35rem;font-weight:700;text-align:center}
 .ssub-l{font-size:.72rem;color:var(--text2);text-align:center}
 .contrib-wrap{background:var(--glass);border:1px solid var(--gb);border-radius:var(--r2);padding:1.8rem;margin-bottom:2rem}
 .cg-title{font-size:.82rem;color:var(--text2);margin-bottom:1.3rem;display:flex;justify-content:space-between;align-items:center}
@@ -177,7 +177,7 @@ h1.big .l2{background:linear-gradient(130deg,var(--accent),var(--accent2) 55%,va
 .lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.9rem}
 .litem{background:var(--glass);border:1px solid var(--gb);border-radius:var(--r);padding:.9rem 1.1rem}
 .ltop{display:flex;justify-content:space-between;align-items:center;margin-bottom:.55rem}
-.lname{font-family:'DM Mono',monospace;font-size:.82rem}.lpct{font-size:.78rem;color:var(--text2)}
+.lname{font-family:'IBM Plex Mono',monospace;font-size:.82rem}.lpct{font-size:.78rem;color:var(--text2)}
 .lbar{height:2.5px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
 .lfill{height:100%;border-radius:2px;width:0;transition:width 1.6s ease}
 
@@ -193,9 +193,9 @@ h1.big .l2{background:linear-gradient(130deg,var(--accent),var(--accent2) 55%,va
 .tdot{width:13px;height:13px;border-radius:50%;box-shadow:0 0 14px currentColor;position:relative;flex-shrink:0}
 .tdot::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid currentColor;opacity:.3}
 .ts{}
-.trole{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.25rem}
+.trole{font-family:'Playfair Display',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.25rem}
 .torg{font-size:.87rem;color:var(--accent);font-weight:500;margin-bottom:.25rem}
-.tdur{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--text2);margin-bottom:.7rem}
+.tdur{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--text2);margin-bottom:.7rem}
 .tdesc{font-size:.86rem;color:var(--text2);line-height:1.72}
 
 /* CERTIFICATES — astro left */
@@ -207,8 +207,8 @@ h1.big .l2{background:linear-gradient(130deg,var(--accent),var(--accent2) 55%,va
 .ccard:hover::before{opacity:1}
 .cbanner{height:130px;display:flex;align-items:center;justify-content:center;font-size:2.6rem;position:relative;overflow:hidden}
 .cbody{padding:1.1rem;position:relative;z-index:1}
-.cissuer{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--accent2);letter-spacing:.06em;margin-bottom:.35rem}
-.ctitle{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;line-height:1.3;margin-bottom:.4rem}
+.cissuer{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--accent2);letter-spacing:.06em;margin-bottom:.35rem}
+.ctitle{font-family:'Playfair Display',sans-serif;font-size:.95rem;font-weight:700;line-height:1.3;margin-bottom:.4rem}
 .cdate{font-size:.76rem;color:var(--text2)}
 .cvbtn{margin-top:.7rem;font-size:.78rem;color:var(--accent);opacity:.6;transition:.2s}
 .ccard:hover .cvbtn{opacity:1}
@@ -221,7 +221,7 @@ h1.big .l2{background:linear-gradient(130deg,var(--accent),var(--accent2) 55%,va
 .mclose{position:absolute;top:1rem;right:1rem;background:var(--glass);border:1px solid var(--gb);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text2);font-size:1.1rem;transition:.2s}
 .mclose:hover{color:var(--accent);border-color:var(--accent)}
 .mbanner{height:210px;border-radius:var(--r);margin-bottom:1.3rem;display:flex;align-items:center;justify-content:center;font-size:4.2rem}
-.morg{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--accent2);letter-spacing:.08em;margin-bottom:.45rem}
+.morg{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--accent2);letter-spacing:.08em;margin-bottom:.45rem}
 .mtitle{font-family:'Syne',sans-serif;font-size:1.65rem;font-weight:800;letter-spacing:-.02em;margin-bottom:1rem}
 .mmeta{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;padding:.95rem;background:var(--glass);border-radius:var(--r);border:1px solid var(--gb)}
 .mml{font-size:.73rem;color:var(--text2);margin-bottom:.18rem}
@@ -542,7 +542,7 @@ footer{position:relative;z-index:10;background:rgba(2,2,14,.9);border-top:1px so
   <h2 class="stitle rv d1">Where I've <span>Worked</span></h2>
   <p class="ssub rv d2">Roles that shaped my technical and entrepreneurial thinking.</p>
   <div class="timeline">
-    <div class="ti rv"><div class="tc"><div class="trole">Software Development Intern</div><div class="torg">TechCorp Solutions</div><div class="tdur">Jun 2024 – Aug 2024</div><div class="tdesc">Built and shipped three customer-facing features in React + Node.js. Reduced API response times by 40% through Redis caching. Collaborated with an agile team of 8 engineers.</div></div><div class="tdc"><div class="tdot" style="background:var(--accent);color:var(--accent)"></div></div><div class="ts"></div></div>
+    <div class="ti rv"><div class="tc"><div class="trole">Event Mangement Lead</div><div class="torg">Geekroom SRMIST</div><div class="tdur">Feb 2026 – till date</div><div class="tdesc">Built and shipped three customer-facing features in React + Node.js. Reduced API response times by 40% through Redis caching. Collaborated with an agile team of 8 engineers.</div></div><div class="tdc"><div class="tdot" style="background:var(--accent);color:var(--accent)"></div></div><div class="ts"></div></div>
     <div class="ti rv"><div class="ts"></div><div class="tdc"><div class="tdot" style="background:var(--accent2);color:var(--accent2)"></div></div><div class="tc"><div class="trole">Co-founder & Lead Developer</div><div class="torg">EduPulse Startup</div><div class="tdur">Jan 2024 – Present</div><div class="tdesc">Co-founded an EdTech startup building AI-powered personalized learning tools. Leading a team of 4, driving product from zero to 200+ beta users.</div></div></div>
     <div class="ti rv"><div class="tc"><div class="trole">Open Source Contributor</div><div class="torg">Various Projects (GitHub)</div><div class="tdur">2023 – Present</div><div class="tdesc">Active contributor to a React component library (2k+ stars) and a Python data utility. Merged 15+ PRs, improved docs, and fixed critical bugs.</div></div><div class="tdc"><div class="tdot" style="background:var(--accent3);color:var(--accent3)"></div></div><div class="ts"></div></div>
     <div class="ti rv"><div class="ts"></div><div class="tdc"><div class="tdot" style="background:var(--accent);color:var(--accent)"></div></div><div class="tc"><div class="trole">Technical Lead — College Tech Club</div><div class="torg">CSIT Dept, University</div><div class="tdur">Aug 2023 – Present</div><div class="tdesc">Leading a 25-member developer community, organizing hackathons and workshops. Mentored 12 freshers, growing participation by 60% year-over-year.</div></div></div>
