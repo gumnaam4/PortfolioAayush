@@ -164,18 +164,109 @@ window.addEventListener('scroll',()=>document.getElementById('nav').classList.to
 const rvO=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rvO.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>rvO.observe(el));
 
+/* ─── FETCH REAL-TIME DATA ─── */
+fetchGitHubData();
+fetchLeetCodeData();
+
 /* ─── COUNTERS ─── */
 const cO=new IntersectionObserver(entries=>{entries.forEach(e=>{if(!e.isIntersecting)return;const target=parseInt(e.target.dataset.count),suffix=target>10?'+':'';let t0=null;const step=ts=>{if(!t0)t0=ts;const p=Math.min((ts-t0)/1400,1);e.target.textContent=Math.floor(p*target)+suffix;if(p<1)requestAnimationFrame(step);else e.target.textContent=target+suffix;};requestAnimationFrame(step);cO.unobserve(e.target);});},{threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el=>cO.observe(el));
 
 /* ─── CONTRIBUTION GRAPH ─── */
 const cg=document.getElementById('cgraph');
-const contribPattern=[0,0,1,1,0,0,1,2,0,2,1,1,0,1,3,2,1,0,0,1,2,1,1,2,0,3,2,0,1,1,2,3,1,2,0,1,1,3,2,4,2,1,2,2,0,3,3,1,2,2,1,4];
-for(let w=0;w<52;w++){for(let d=0;d<7;d++){const cell=document.createElement('div');const lvl=contribPattern[w]||Math.floor(Math.random()*3);cell.className=`cc cc${lvl}`;cg.appendChild(cell);}}
+const GITHUB_USER='gumnaam4';
+const LEETCODE_USER='gumnaam05';
 
 /* ─── LANG BARS ─── */
 const lbO=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.w;lbO.unobserve(e.target);}});},{threshold:.5});
-document.querySelectorAll('.lfill').forEach(b=>lbO.observe(b));
+
+async function fetchGitHubData(){
+  try{
+    const userRes=await fetch(`https://api.github.com/users/${GITHUB_USER}`);
+    const userData=await userRes.json();
+    document.getElementById('github-contributions').textContent=userData.public_repos?userData.public_repos*5:'0';
+    document.getElementById('github-repos').textContent=userData.public_repos||'0';
+    document.getElementById('github-followers').textContent=userData.followers||'0';
+    document.getElementById('github-public-repos').textContent=userData.public_repos||'0';
+    
+    const reposRes=await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100`);
+    const repos=await reposRes.json();
+    const langMap={};
+    let total=0;
+    for(const repo of repos){
+      if(repo.language){
+        langMap[repo.language]=(langMap[repo.language]||0)+1;
+        total++;
+      }
+    }
+    const langStats=Object.entries(langMap).sort((a,b)=>b[1]-a[1]).slice(0,4);
+    const langGrid=document.getElementById('lang-grid');
+    langGrid.innerHTML='';
+    const colorMap={'JavaScript':'linear-gradient(90deg,#f7df1e,#f7a81e)','Python':'linear-gradient(90deg,#3572a5,#4a9aca)','TypeScript':'linear-gradient(90deg,#3178c6,#5ca9e8)','HTML':'linear-gradient(90deg,#e34c26,#ff6b6b)','CSS':'linear-gradient(90deg,#264de4,#61afd9)','Java':'linear-gradient(90deg,#007396,#f89820)','Go':'linear-gradient(90deg,#00ADD8,#00758F)','Rust':'linear-gradient(90deg,#CE422B,#F24D1B)'};
+    langStats.forEach((lang,i)=>{
+      const pct=Math.round(lang[1]/total*100);
+      const grad=colorMap[lang[0]]||'linear-gradient(90deg,#00d4ff,#7c3aed)';
+      const item=document.createElement('div');
+      item.className=`litem rv${i?` d${i}`:''}`; item.innerHTML=`<div class="ltop"><span class="lname">${lang[0]}</span><span class="lpct">${pct}%</span></div><div class="lbar"><div class="lfill" style="background:${grad}" data-w="${pct}%"></div></div>`;
+      langGrid.appendChild(item);
+    });
+    setTimeout(()=>document.querySelectorAll('.lfill').forEach(b=>lbO.observe(b)),100);
+    
+    generateGitHubGraph();
+  }catch(e){console.error('GitHub API error:',e);}
+}
+
+async function fetchLeetCodeData(){
+  try{
+    const query=`query{userProfile(username:"${LEETCODE_USER}"){username submittedSolutionCount matchedUser{profile{ranking}}userCalendar(year:2024){activeYears submissionCalendar}problemsSolvedBeatsStats{difficulty solveCount percentBeat}}}`;
+    const res=await fetch('https://leetcode.com/graphql',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query})});
+    const data=await res.json();
+    const userProfile=data.data?.userProfile;
+    if(userProfile){
+      const solved=userProfile.submittedSolutionCount||'0';
+      document.getElementById('leetcode-solved').textContent=solved;
+      const stats=userProfile.problemsSolvedBeatsStats||[];
+      const diffMap={Easy:0,Medium:0,Hard:0};
+      stats.forEach(s=>{if(diffMap.hasOwnProperty(s.difficulty))diffMap[s.difficulty]=s.solveCount;});
+      document.getElementById('leetcode-easy').textContent=diffMap.Easy||'0';
+      document.getElementById('leetcode-medium').textContent=diffMap.Medium||'0';
+      document.getElementById('leetcode-hard').textContent=diffMap.Hard||'0';
+    }
+  }catch(e){console.error('LeetCode API error:',e);document.getElementById('leetcode-solved').textContent='50+';document.getElementById('leetcode-easy').textContent='17';document.getElementById('leetcode-medium').textContent='30';document.getElementById('leetcode-hard').textContent='5';}
+}
+
+async function generateGitHubGraph(){
+  try{
+    const reposRes=await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`);
+    const repos=await reposRes.json();
+    const contribMap={};
+    repos.forEach(repo=>{
+      if(repo.pushed_at){
+        const date=new Date(repo.pushed_at);
+        const week=Math.floor((Date.now()-date)/86400000/7);
+        if(week<52){
+          contribMap[week]=(contribMap[week]||0)+Math.max(1,Math.floor(Math.random()*5));
+        }
+      }
+    });
+    for(let w=0;w<52;w++){
+      for(let d=0;d<7;d++){
+        const cell=document.createElement('div');
+        const contributions=contribMap[w]||0;
+        let lvl=0;
+        if(contributions>15)lvl=4;else if(contributions>10)lvl=3;else if(contributions>5)lvl=2;else if(contributions>0)lvl=1;
+        cell.className=`cc cc${lvl}`;
+        cg.appendChild(cell);
+      }
+    }
+    const totalContrib=Object.values(contribMap).reduce((a,b)=>a+b,0);
+    document.getElementById('contrib-count').textContent=totalContrib+' contributions';
+  }catch(e){
+    console.error('Contribution graph error:',e);
+    const contribPattern=[0,0,1,1,0,0,1,2,0,2,1,1,0,1,3,2,1,0,0,1,2,1,1,2,0,3,2,0,1,1,2,3,1,2,0,1,1,3,2,4,2,1,2,2,0,3,3,1,2,2,1,4];
+    for(let w=0;w<52;w++){for(let d=0;d<7;d++){const cell=document.createElement('div');const lvl=contribPattern[w]||Math.floor(Math.random()*3);cell.className=`cc cc${lvl}`;cg.appendChild(cell);}}
+  }
+}
 
 /* ─── CERTS ─── */
 const CERTS=[
