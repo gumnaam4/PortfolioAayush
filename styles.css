@@ -81,9 +81,12 @@ nav.s{padding:.9rem 5rem;background:rgba(10,11,16,.92)}
 @keyframes spkFade{0%{opacity:.85;transform:scale(1) translate(0,0)}100%{opacity:0;transform:scale(.1) translate(var(--dx),var(--dy))}}
 
 /* SECTIONS */
-section{position:relative;z-index:10;padding:8rem 8%;border-bottom:1px solid var(--border)}
-section:nth-child(odd){background:#0a0b10}
-section:nth-child(even){background:#0d0e14}
+section{position:relative;z-index:10;padding:8rem 8%;border-bottom:1px solid var(--border);background:transparent}
+/* Make section backgrounds transparent so the fixed space canvas
+  remains visible site-wide (helps when hosted on static hosts).
+  Individual sections still use internal .amb accents for variety. */
+section:nth-child(odd),
+section:nth-child(even){background:transparent}
 #hero{min-height:100vh;display:grid;grid-template-columns:1.1fr 0.9fr;align-items:center;padding:7.5rem 8% 4rem;background:transparent!important}
 
 .grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:1}
