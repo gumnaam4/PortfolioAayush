@@ -1,0 +1,9 @@
+{
+  "name": "portfolio-aayush",
+  "version": "1.0.0",
+  "description": "Portfolio site with serverless contact endpoint",
+  "private": true,
+  "dependencies": {
+    "nodemailer": "^6.9.3"
+  }
+}

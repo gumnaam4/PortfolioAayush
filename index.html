@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Aayush — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Lato:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="styles.css"/>
 
 </head>
@@ -71,20 +71,82 @@
     </svg>
     <!-- Floating Skills -->
 
-<div style="position:absolute;bottom:28%;left:8%;font-family:'DM Mono',monospace;font-size:.7rem;color:rgba(0,212,255,.45);letter-spacing:.08em;animation:aFloat 6s ease-in-out infinite">⬡ React.js</div>
-<div style="position:absolute;top:20%;right:6%;font-family:'DM Mono',monospace;font-size:.68rem;color:rgba(124,58,237,.5);letter-spacing:.08em;animation:aFloat 7s ease-in-out infinite .8s">⬡ Node.js</div>
-<div style="position:absolute;bottom:42%;right:5%;font-family:'DM Mono',monospace;font-size:.66rem;color:rgba(255,107,107,.45);letter-spacing:.08em;animation:aFloat 5s ease-in-out infinite 1.5s">⬡ Python</div>
-<div style="position:absolute;top:35%;left:6%;font-family:'DM Mono',monospace;font-size:.7rem;color:rgba(0,255,170,.45);letter-spacing:.08em;animation:aFloat 6.5s ease-in-out infinite">⬡ JavaScript</div>
-<div style="position:absolute;bottom:18%;right:20%;font-family:'DM Mono',monospace;font-size:.68rem;color:rgba(255,180,0,.45);letter-spacing:.08em;animation:aFloat 7s ease-in-out infinite .5s">⬡ Django</div>
-<div style="position:absolute;top:12%;left:28%;font-family:'DM Mono',monospace;font-size:.66rem;color:rgba(0,200,255,.45);letter-spacing:.08em;animation:aFloat 5.5s ease-in-out infinite 1s">⬡ HTML</div>
-<div style="position:absolute;top:52%;left:3%;font-family:'DM Mono',monospace;font-size:.66rem;color:rgba(255,80,180,.45);letter-spacing:.08em;animation:aFloat 6s ease-in-out infinite 1.3s">⬡ CSS</div>
-<div style="position:absolute;bottom:10%;left:35%;font-family:'DM Mono',monospace;font-size:.7rem;color:rgba(0,255,255,.45);letter-spacing:.08em;animation:aFloat 7s ease-in-out infinite .7s">⬡ Git</div>
-<div style="position:absolute;top:40%;right:18%;font-family:'DM Mono',monospace;font-size:.68rem;color:rgba(255,120,80,.45);letter-spacing:.08em;animation:aFloat 6.8s ease-in-out infinite 1.1s">⬡ GitHub</div>
-<div style="position:absolute;bottom:50%;left:25%;font-family:'DM Mono',monospace;font-size:.66rem;color:rgba(120,255,120,.45);letter-spacing:.08em;animation:aFloat 5.8s ease-in-out infinite 1.8s">⬡ Data Structures</div>
-<div style="position:absolute;top:60%;right:10%;font-family:'DM Mono',monospace;font-size:.66rem;color:rgba(200,120,255,.45);letter-spacing:.08em;animation:aFloat 6.2s ease-in-out infinite 1.2s">⬡ Algorithms</div>
-<div style="position:absolute;top:72%;left:18%;font-family:'DM Mono',monospace;font-size:.66rem;color:rgba(255,160,0,.45);letter-spacing:.08em;animation:aFloat 7.2s ease-in-out infinite .9s">⬡ SQL</div>
-<div style="position:absolute;bottom:32%;right:28%;font-family:'DM Mono',monospace;font-size:.66rem;color:rgba(80,200,255,.45);letter-spacing:.08em;animation:aFloat 5.9s ease-in-out infinite 1.4s">⬡ Web3</div>
-<div style="position:absolute;top:75%;right:32%;font-family:'DM Mono',monospace;font-size:.66rem;color:rgba(255,90,90,.45);letter-spacing:.08em;animation:aFloat 6.5s ease-in-out infinite 1.6s">⬡ Stock Market</div>
+<div class="f-skill" style="bottom:28%;left:8%;animation-delay:0s">React.js</div>
+<div class="f-skill" style="top:20%;right:6%;animation-delay:0.8s">Node.js</div>
+<div class="f-skill" style="bottom:42%;right:5%;animation-delay:1.5s">Python</div>
+<div class="f-skill" style="top:35%;left:6%;animation-delay:0.3s">JavaScript</div>
+<div class="f-skill" style="bottom:18%;right:20%;animation-delay:0.5s">Django</div>
+<div class="f-skill" style="top:12%;left:28%;animation-delay:1s">HTML</div>
+<div class="f-skill" style="top:52%;left:3%;animation-delay:1.3s">CSS</div>
+<div class="f-skill" style="bottom:10%;left:35%;animation-delay:0.7s">Git</div>
+<div class="f-skill" style="top:40%;right:18%;animation-delay:1.1s">GitHub</div>
+<div class="f-skill" style="bottom:50%;left:25%;animation-delay:1.8s">Data Structures</div>
+<div class="f-skill" style="top:60%;right:10%;animation-delay:1.2s">Algorithms</div>
+<div class="f-skill" style="top:72%;left:18%;animation-delay:0.9s">SQL</div>
+<div class="f-skill" style="bottom:32%;right:28%;animation-delay:1.4s">Web3</div>
+<div class="f-skill" style="top:75%;right:32%;animation-delay:1.6s">Stock Market</div>
+  </div>
+</section>
+
+<!-- CURRENTLY / LIVE STATUS -->
+<section id="currently">
+  <div class="stag rv">CURRENTLY</div>
+  <h2 class="stitle rv d1">What I'm <span>Up To</span></h2>
+  <p class="ssub rv d2">A concise, live snapshot of my current academic, project, and availability status.</p>
+
+  <div id="current-wrap" class="current-grid rv d3" aria-live="polite"></div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="stag rv">SKILLS</div>
+  <h2 class="stitle rv d1">Technical <span>Skills</span></h2>
+  <p class="ssub rv d2">Organized categories highlighting core strengths and tooling used across my work.</p>
+
+  <div class="skills-grid rv d3">
+    <div class="skill-card">
+      <h3 class="skill-cat">Programming</h3>
+      <ul class="skill-list">
+        <li>JavaScript</li>
+        <li>Python</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <h3 class="skill-cat">Web / Backend</h3>
+      <ul class="skill-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Node.js</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <h3 class="skill-cat">Data / AI</h3>
+      <ul class="skill-list">
+        <li>Python</li>
+        <li>Machine Learning</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <h3 class="skill-cat">Database</h3>
+      <ul class="skill-list">
+        <li>SQL</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <h3 class="skill-cat">Tools / Platforms</h3>
+      <ul class="skill-list">
+        <li>Git</li>
+        <li>GitHub</li>
+        <li>Vercel</li>
+        <li>AWS</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -95,10 +157,31 @@
   <h2 class="stitle rv d1">Things I've <span>Built</span></h2>
   <p class="ssub rv d2">A curated selection blending technical depth with real-world impact</p>
   <div class="pgrid">
-    <div class="pcard rv"><div class="pimg"><div class="pimg-bg" style="background:linear-gradient(135deg,#0d1a3a,#1a0d3a)"></div><span>😎</span></div><div class="pbody"><div class="pnum">01</div><div class="ptitle">Personal Portfolio</div><div class="pdesc">The online presence, my portfolio that's that describe about me, enough for recruiter's ig.</div><div class="ptags"><span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span></div><a href="#" class="plink">View Project →</a></div></div>
-    <div class="pcard rv" style="opacity:.6;pointer-events:none"><div class="pimg"><div class="pimg-bg" style="background:linear-gradient(135deg,rgba(0,212,255,.1),rgba(124,58,237,.08))"></div><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:8px"><div style="font-size:1.8rem">⏳</div><div style="font-family:'DM Mono',monospace;font-size:.7rem;color:rgba(0,212,255,.6);letter-spacing:.06em;animation:pulse 2s infinite">LOADING</div></div></div><div class="pbody"><div class="ptitle" style="text-align:center;margin-bottom:1rem">More Projects Coming Soon</div><div class="pdesc" style="text-align:center;color:rgba(255,255,255,.4);font-size:.85rem">Currently working on exciting new projects. Check back soon! 🚀</div></div></div>
+    <div id="projects-grid" class="projects-grid"></div>
   </div>
 </section>
+
+<!-- MARKET / TRADING -->
+<section id="market">
+  <div class="amb" style="width:300px;height:300px;top:0;left:0;background:rgba(124,58,237,.04)"></div>
+  <div class="stag rv">MARKETS</div>
+  <h2 class="stitle rv d1">Markets & <span>Trading</span></h2>
+  <p class="ssub rv d2">A concise, professional snapshot of my market activity and live price data. Figures below reflect personal trading volume and market quotes may be delayed.</p>
+
+  <div class="market-top rv d3">
+    <div class="m-metric">
+      <div class="m-val">₹1L+</div>
+      <div class="m-label">Trading Volume</div>
+      <div class="m-sub">Intraday · IPO participation</div>
+    </div>
+    <div class="m-note">Only exact personal figures supplied are shown — this is not financial advice.</div>
+  </div>
+
+  <div class="market-grid rv d4" id="market-grid">
+    <!-- Tiles injected by script.js -->
+  </div>
+</section>
+
 
 <!-- CODING ACTIVITY -->
 <section id="coding">
@@ -109,55 +192,50 @@
   <div class="cgrid rv">
     <div class="scard" style="--sc:rgba(255,160,50,.07)">
       <div class="splat" style="color:#ffa729"><span class="sdot" style="background:#ffa729"></span>LEETCODE</div>
-      <div class="snum" id="leetcode-solved">-</div><div class="slabel">Problems Solved</div>
+      <div class="snum" id="leetcode-solved"><span class="stat-loading">…</span></div><div class="slabel">Problems Solved</div>
       <div class="ssub-g">
         <div><div class="ssub-n" style="color:#4eca6e" id="leetcode-easy">-</div><div class="ssub-l">Easy</div></div>
         <div><div class="ssub-n" style="color:#ffa729" id="leetcode-medium">-</div><div class="ssub-l">Medium</div></div>
         <div><div class="ssub-n" style="color:#ef4444" id="leetcode-hard">-</div><div class="ssub-l">Hard</div></div>
       </div>
+      <div class="stat-rank" id="leetcode-rank"></div>
     </div>
     <div class="scard">
       <div class="splat"><span class="sdot" style="background:var(--accent)"></span>GITHUB</div>
-      <div class="snum" id="github-contributions">-</div><div class="slabel">Contributions Last Year</div>
+      <div class="snum" id="github-repos"><span class="stat-loading">…</span></div><div class="slabel">Public Repositories</div>
       <div class="ssub-g">
-        <div><div class="ssub-n" id="github-repos">-</div><div class="ssub-l">Repos</div></div>
         <div><div class="ssub-n" id="github-followers">-</div><div class="ssub-l">Followers</div></div>
-        <div><div class="ssub-n" id="github-public-repos">-</div><div class="ssub-l">Public</div></div>
+        <div><div class="ssub-n" id="github-following">-</div><div class="ssub-l">Following</div></div>
+        <div><div class="ssub-n" id="github-stars">-</div><div class="ssub-l">Stars</div></div>
       </div>
     </div>
   </div>
+  <div id="stats-status"></div>
   <div class="contrib-wrap rv">
-    <div class="cg-title"><span>GitHub Contribution Graph · Last 52 Weeks</span><span style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--accent)" id="contrib-count">- contributions</span></div>
+    <div class="cg-title"><span>GitHub Contribution Graph · Last 52 Weeks</span><span id="contrib-count" style="font-family:var(--font-mono);font-size:.72rem;color:var(--accent)">-</span></div>
     <div class="cgraph" id="cgraph"></div>
     <div style="display:flex;align-items:center;gap:.5rem;margin-top:.9rem;justify-content:flex-end">
       <span style="font-size:.72rem;color:var(--text2)">Less</span>
-      <div style="width:10px;height:10px;border-radius:2px;background:rgba(255,255,255,.04)"></div>
-      <div style="width:10px;height:10px;border-radius:2px;background:rgba(0,212,255,.2)"></div>
-      <div style="width:10px;height:10px;border-radius:2px;background:rgba(0,212,255,.45)"></div>
-      <div style="width:10px;height:10px;border-radius:2px;background:rgba(0,212,255,.7)"></div>
-      <div style="width:10px;height:10px;border-radius:2px;background:rgba(0,212,255,.92)"></div>
+      <div style="width:10px;height:10px;border-radius:1px;background:rgba(255,255,255,.04)"></div>
+      <div style="width:10px;height:10px;border-radius:1px;background:rgba(0,242,254,.15)"></div>
+      <div style="width:10px;height:10px;border-radius:1px;background:rgba(0,242,254,.35)"></div>
+      <div style="width:10px;height:10px;border-radius:1px;background:rgba(0,242,254,.6)"></div>
+      <div style="width:10px;height:10px;border-radius:1px;background:rgba(0,242,254,.85)"></div>
       <span style="font-size:.72rem;color:var(--text2)">More</span>
     </div>
   </div>
-  <div class="lgrid" id="lang-grid">
-    <div class="litem rv"><div class="ltop"><span class="lname">JavaScript</span><span class="lpct">35%</span></div><div class="lbar"><div class="lfill" style="background:linear-gradient(90deg,#f7df1e,#f7a81e)" data-w="35%"></div></div></div>
-    <div class="litem rv d1"><div class="ltop"><span class="lname">Python</span><span class="lpct">32%</span></div><div class="lbar"><div class="lfill" style="background:linear-gradient(90deg,#3572a5,#4a9aca)" data-w="32%"></div></div></div>
-    <div class="litem rv d2"><div class="ltop"><span class="lname">TypeScript</span><span class="lpct">22%</span></div><div class="lbar"><div class="lfill" style="background:linear-gradient(90deg,#3178c6,#5ca9e8)" data-w="22%"></div></div></div>
-    <div class="litem rv d3"><div class="ltop"><span class="lname">HTML</span><span class="lpct">11%</span></div><div class="lbar"><div class="lfill" style="background:linear-gradient(90deg,#e34c26,#ff6b6b)" data-w="11%"></div></div></div>
-  </div>
+  <div class="lgrid" id="lang-grid"></div>
 </section>
 
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="amb" style="width:380px;height:380px;top:5%;right:-80px;background:rgba(124,58,237,.07)"></div>
-  <div class="stag rv">EXPERIENCE</div>
-  <h2 class="stitle rv d1">Where I've <span>Worked</span></h2>
-  <p class="ssub rv d2">Roles that shaped my technical and entrepreneurial thinking.</p>
-  <div class="timeline">
-    <div class="ti rv"><div class="tc"><div class="trole">Event Mangement Lead</div><div class="torg">GeekRoom [SRMIST]</div><div class="tdur">Feb 2026 – till date</div><div class="tdesc">Event Management Lead at the GeekRoom Technical Club,leading a team of 13 members to organizing and executing tech-driven events that foster innovation, collaboration, and learning within the college community.</div></div><div class="tdc"><div class="tdot" style="background:var(--accent);color:var(--accent)"></div></div><div class="ts"></div></div>
-    <div class="ti rv"><div class="ts"></div><div class="tdc"><div class="tdot" style="background:var(--accent2);color:var(--accent2)"></div></div><div class="tc"><div class="trole">Event Management Co-oridnator</div><div class="torg">ISTE [SRMIST]</div><div class="tdur">Nov 2025 – till date</div><div class="tdesc">Event Management Team Member at the Indian Society for Technical Education (ISTE) Club, contributing to the planning and execution of technical and professional events that promote innovation, learning, and collaboration among students.</div></div></div>
-    <div class="ti rv"><div class="tc"><div class="trole">PR (Photography & Videography)</div><div class="torg">Magan- music club of SRMIST</div><div class="tdur">Sept 2024 – Present</div><div class="tdesc">PR Team Member at Magan – the Music Club of the college, capturing and promoting club activities through photography and videography while helping showcase the creative energy of campus music events.</div></div><div class="tdc"><div class="tdot" style="background:var(--accent3);color:var(--accent3)"></div></div><div class="ts"></div></div>
-    <div class="ti rv"><div class="ts"></div><div class="tdc"><div class="tdot" style="background:var(--accent);color:var(--accent)"></div></div><div class="tc"><div class="trole">Video Editor</div><div class="torg">Saanjh, NGO</div><div class="tdur">Nov 2025 – March 26</div><div class="tdesc">Video Editor for an NGO supporting underprivileged children, where I spent 5 months creating impactful videos to highlight their initiatives and amplify their social outreach.</div></div></div>
+  <div class="stag rv">EXPERIENCE & MILESTONES</div>
+  <h2 class="stitle rv d1">Experience & <span>Milestones</span></h2>
+  <p class="ssub rv d2">Leadership, competitions, technical challenges and experiences that shaped my journey as a developer.</p>
+  <div class="experience-panel rv d3">
+    <div id="experience-nav" class="experience-nav" role="tablist" aria-label="Experience categories"></div>
+    <div id="experience-grid" class="experience-grid"></div>
   </div>
 </section>
 
@@ -167,9 +245,7 @@
   <div class="stag rv">CERTIFICATES</div>
   <h2 class="stitle rv d1">What I've <span>Earned</span></h2>
   <p class="ssub rv d2">Certificate & Certifications validating hands-on expertise across different domains.</p>
-  <div class="certgrid">
-    <div class="ccard rv" style="grid-column:1/-1;max-width:400px;margin:0 auto;opacity:.7;cursor:default;pointer-events:none"><div class="cbanner" style="background:linear-gradient(135deg,#0d2a3a,#0a1a1a);font-size:3rem">📄</div><div class="cbody" style="text-align:center"><div class="cissuer">COMING SOON</div><div class="ctitle">Certificates</div><div class="cdate" style="margin-top:.8rem;color:var(--text2);font-size:.85rem">I'll be uploading my certifications here soon. Stay tuned! 🚀</div></div></div>
-  </div>
+  <div class="certgrid" id="cert-grid"></div>
 </section>
 
 <!-- CONTACT -->
@@ -189,11 +265,12 @@
       </div>
     </div>
     <div class="rv d2">
-      <div class="form-g"><label class="flabel">NAME</label><input class="finput" type="text" placeholder="Your full name"/></div>
-      <div class="form-g"><label class="flabel">EMAIL</label><input class="finput" type="email" placeholder="your@email.com"/></div>
-      <div class="form-g"><label class="flabel">SUBJECT</label><input class="finput" type="text" placeholder="Project collab, opportunity..."/></div>
-      <div class="form-g"><label class="flabel">MESSAGE</label><textarea class="finput" placeholder="Tell me what's on your mind..."></textarea></div>
-      <button class="fsub" onclick="handleSubmit(this)">Send Message <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg></button>
+      <div class="form-g"><label class="flabel">NAME</label><input id="contact-name" name="name" class="finput" type="text" placeholder="Your full name" required/></div>
+      <div class="form-g"><label class="flabel">EMAIL</label><input id="contact-email" name="email" class="finput" type="email" placeholder="your@email.com" required/></div>
+      <div class="form-g"><label class="flabel">SUBJECT</label><input id="contact-subject" name="subject" class="finput" type="text" placeholder="Project collab, opportunity..." required/></div>
+      <div class="form-g"><label class="flabel">MESSAGE</label><textarea id="contact-message" name="message" class="finput" placeholder="Tell me what's on your mind..." required></textarea></div>
+      <button id="contact-submit" class="fsub" onclick="handleSubmit(this)">Send Message <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg></button>
+      <div id="contact-status" style="margin-top:.8rem;font-family:var(--font-mono);font-size:.85rem;color:var(--text2)"></div>
     </div>
   </div>
 </section>
@@ -204,21 +281,7 @@
   <p class="ftext" style="font-family:'DM Mono',monospace;font-size:.72rem">v.0.0</p>
 </footer>
 
-<!-- MODAL -->
-<div class="moverlay" id="certModal" onclick="closeCert(event)">
-  <div class="mbox" onclick="event.stopPropagation()">
-    <button class="mclose" onclick="closeCert()">✕</button>
-    <div class="mbanner" id="mBanner"></div>
-    <div class="morg" id="mOrg"></div>
-    <div class="mtitle" id="mTitle"></div>
-    <div class="mmeta">
-      <div><div class="mml">Issued By-</div><div class="mmv" id="mIssuer"></div></div>
-      <div><div class="mml">Date</div><div class="mmv" id="mDate"></div></div>
-      <div><div class="mml">Credential ID</div><div class="mmv" id="mId" style="font-family:'DM Mono',monospace;font-size:.78rem"></div></div>
-      <div><div class="mml">Status</div><div class="mmv" style="color:#4eca6e">✓ Verified</div></div>
-    </div>
-  </div>
-</div>
+<!-- Cert modal removed — certificates now open as native PDFs in the same tab -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="script.js"></script>
