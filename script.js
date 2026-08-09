@@ -115,7 +115,7 @@ CONFIG.CURRENT = {
 const PROJECTS = [
   {
   id: 'safaro',
-  title: 'Safaro',
+  title: 'Safaro [Founder]',
   short: 'Reverse travel marketplace connecting travellers with agencies for personalized trip planning.',
   problem: 'Helps travellers find suitable agencies and packages based on their specific requirements.',
   tech: ['Python', 'Django', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
