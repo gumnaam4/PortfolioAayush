@@ -44,7 +44,7 @@ window.addEventListener('scroll',()=>{
   const typeNext=()=>{
     if (idx < name.length) {
       textEl.textContent += name[idx++];
-      setTimeout(typeNext, 160);
+      setTimeout(typeNext, 100);
     } else {
       setTimeout(()=>loader.classList.add('page-loader-hidden'), 500);
     }
