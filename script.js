@@ -147,7 +147,7 @@ const PROJECTS = [
 
 {
   id: 'file-redaction',
-  title: 'File Word Redaction Project',
+  title: 'RedactX',
   short: 'Document processing tool for detecting and redacting sensitive information from Word files.',
   problem: 'Reduces the risk of exposing sensitive information when sharing documents.',
   tech: ['Python', 'Django', 'NLP', 'HTML', 'CSS', 'JavaScript'],
