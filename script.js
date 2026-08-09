@@ -33,6 +33,25 @@ window.addEventListener('scroll',()=>{
   document.getElementById('prog').style.width=p+'%';
 });
 
+/* ─── PAGE LOADER TYPEWRITER ─── */
+(function(){
+  const loader=document.getElementById('page-loader');
+  const textEl=loader?.querySelector('.loader-text');
+  if (!loader || !textEl) return;
+  const name='Loading....';
+  let idx=0;
+  textEl.textContent='';
+  const typeNext=()=>{
+    if (idx < name.length) {
+      textEl.textContent += name[idx++];
+      setTimeout(typeNext, 160);
+    } else {
+      setTimeout(()=>loader.classList.add('page-loader-hidden'), 1000);
+    }
+  };
+  window.addEventListener('load',()=>setTimeout(typeNext, 250));
+})();
+
 /* ─── NAV SCROLL STATE ─── */
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('s',window.scrollY>60));
 
