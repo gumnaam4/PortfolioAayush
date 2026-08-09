@@ -46,7 +46,7 @@ window.addEventListener('scroll',()=>{
       textEl.textContent += name[idx++];
       setTimeout(typeNext, 160);
     } else {
-      setTimeout(()=>loader.classList.add('page-loader-hidden'), 1000);
+      setTimeout(()=>loader.classList.add('page-loader-hidden'), 500);
     }
   };
   window.addEventListener('load',()=>setTimeout(typeNext, 250));
@@ -263,7 +263,7 @@ async function fetchMarketData(symbols) {
       if (r.ok) {
         const p = await r.json();
         const res = parsePayload(p);
-        if (res && res.length) { console.info('Market: fetched direct from Yahoo'); return { data: normalize(resultsToData(res)) }; }
+        if (res && res.length) { return { data: normalize(resultsToData(res)) }; }
         // If Yahoo returns an error payload, fall through to proxies
         attempts.push('yahoo-direct-empty');
       } else {
@@ -278,7 +278,7 @@ async function fetchMarketData(symbols) {
       if (r.ok) {
         const p = await r.json();
         const res = parsePayload(p);
-        if (res && res.length) { console.info('Market: fetched via AllOrigins proxy'); return { data: normalize(resultsToData(res)) }; }
+        if (res && res.length) { return { data: normalize(resultsToData(res)) }; }
         attempts.push('allorigins-empty');
       } else attempts.push(`allorigins-status-${r.status}`);
     } catch (err) { attempts.push('allorigins-error'); }
@@ -290,7 +290,7 @@ async function fetchMarketData(symbols) {
       if (r.ok) {
         const p = await r.json();
         const res = parsePayload(p);
-        if (res && res.length) { console.info('Market: fetched via ThingProxy'); return { data: normalize(resultsToData(res)) }; }
+        if (res && res.length) { return { data: normalize(resultsToData(res)) }; }
         attempts.push('thingproxy-empty');
       } else attempts.push(`thingproxy-status-${r.status}`);
     } catch (err) { attempts.push('thingproxy-error'); }
@@ -304,7 +304,7 @@ async function fetchMarketData(symbols) {
       if (r.ok) {
         const p = await r.json();
         if (Array.isArray(p) && p.length) {
-          console.info('Market: fetched via FinancialModelingPrep');
+          
           // Normalize FMP response to our shape
           const data = p.map(x => ({ symbol: x.symbol, name: x.name || x.symbol, price: x.price ?? null, change: x.change ?? null, changePercent: x.changesPercentage ?? null, marketState: null, currency: x.currency || null, lastUpdate: x.timestamp ? new Date(x.timestamp * 1000).toISOString() : null }));
           return { data };

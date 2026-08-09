@@ -5,9 +5,8 @@ const fetch = require('node-fetch');
 
 module.exports = async function handler(req, res) {
   try {
-    const qs = req.query.symbols || req.url.split('?')[1] || '';
-    // Expect symbols as comma-separated string, e.g. ^NSEI,^BSESN,INFY.NS
-    const symbols = (Array.isArray(req.query.symbols) ? req.query.symbols.join(',') : String(req.query.symbols || '')).trim();
+  // Expect symbols as comma-separated string, e.g. ^NSEI,^BSESN,INFY.NS
+  const symbols = (Array.isArray(req.query.symbols) ? req.query.symbols.join(',') : String(req.query.symbols || '')).trim();
     if (!symbols) {
       return res.status(400).json({ error: 'Missing symbols parameter' });
     }
