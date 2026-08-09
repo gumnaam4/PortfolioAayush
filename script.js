@@ -204,16 +204,9 @@ function renderProjects() {
     const tech = document.createElement('div'); tech.className = 'proj-tech'; tech.textContent = p.tech && p.tech.length ? p.tech.join(' · ') : '';
 
     const ctas = document.createElement('div'); ctas.className = 'proj-ctas';
-    if (p.github) {
-      const a = document.createElement('a'); a.className='proj-btn'; a.href = p.github; a.target='_blank'; a.rel='noopener'; a.textContent='GitHub'; ctas.appendChild(a);
-    } else {
-      const d = document.createElement('button'); d.className='proj-btn disabled'; d.textContent='GitHub'; d.disabled=true; ctas.appendChild(d);
-    }
-    if (p.live) {
-      const b = document.createElement('a'); b.className='proj-btn'; b.href = p.live; b.target='_blank'; b.rel='noopener'; b.textContent='Visit'; ctas.appendChild(b);
-    } else {
-      const d2 = document.createElement('button'); d2.className='proj-btn disabled'; d2.textContent='Visit'; d2.disabled=true; ctas.appendChild(d2);
-    }
+    // For static-hosted portfolio, open the simple projects landing page
+    const githubLink = document.createElement('a'); githubLink.className='proj-btn'; githubLink.href = 'projects.html'; githubLink.target='_self'; githubLink.rel='noopener'; githubLink.textContent='GitHub'; ctas.appendChild(githubLink);
+    const visitLink = document.createElement('a'); visitLink.className='proj-btn'; visitLink.href = 'projects.html'; visitLink.target='_self'; visitLink.rel='noopener'; visitLink.textContent='Visit'; ctas.appendChild(visitLink);
 
     card.appendChild(status);
     card.appendChild(title);
@@ -315,57 +308,80 @@ function resultsToData(results) {
 }
 
 function normalize(arr) { return arr; }
+// Render the redesigned Trading & Markets section (decorative visualizations only)
+function renderTradingSection() {
+  // Draw correlation visualization and market visualization on intersection
+  const corrEl = document.getElementById('corr-vis');
+  const mvEl = document.getElementById('market-vis');
 
-async function renderMarket() {
-  const grid = document.getElementById('market-grid');
-  if (!grid) return;
-  grid.innerHTML = '';
-
-  const symbols = MARKET_TICKERS.map(t => t.symbol);
-  const resp = await fetchMarketData(symbols);
-  if (!resp || !resp.data) {
-    grid.innerHTML = '<div style="color:var(--text2)">Market data unavailable.</div>';
-    return;
+  function drawCorrelation(el) {
+    if (!el) return;
+    el.innerHTML = '';
+    const size = Math.min(el.clientWidth, 260);
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS,'svg'); svg.setAttribute('width','100%'); svg.setAttribute('height','100%'); svg.setAttribute('viewBox',`0 0 160 96`);
+    const groups = 6; const cell = 14; const pad = 6;
+    // generate sample symmetric correlation matrix (decorative)
+    const mat = Array.from({length:groups},(_,i)=>Array.from({length:groups},(_,j)=>{ if (i===j) return 1; const v = ((i-j)/groups) + (Math.sin((i+j)/2)*0.15); return Math.max(-1,Math.min(1,Number(v.toFixed(2)))); }));
+    for (let r=0;r<groups;r++){
+      for (let c=0;c<groups;c++){
+        const val = mat[r][c];
+        const x = pad + c*cell; const y = pad + r*cell;
+        const rect = document.createElementNS(svgNS,'rect'); rect.setAttribute('x',x); rect.setAttribute('y',y); rect.setAttribute('width',cell-1); rect.setAttribute('height',cell-1);
+        // color scale: negative->blue, positive->orange
+        const t = (val+1)/2; const rcol = Math.round(34 + t*200); const gcol = Math.round(50 + (1-t)*80); const bcol = Math.round(60 + (1-t)*140);
+        rect.setAttribute('fill',`rgba(${rcol},${gcol},${bcol},${0.9*Math.abs(val)})`);
+        rect.setAttribute('stroke','rgba(255,255,255,0.02)'); svg.appendChild(rect);
+      }
+    }
+    el.appendChild(svg);
   }
 
-  const map = {};
-  resp.data.forEach(d => map[d.symbol] = d);
+  function drawMarketVis(el) {
+    if (!el) return;
+    el.innerHTML = '';
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const w = el.clientWidth||600; const h = el.clientHeight||220; const viewW=600, viewH=220;
+    const svg = document.createElementNS(svgNS,'svg'); svg.setAttribute('viewBox',`0 0 ${viewW} ${viewH}`); svg.setAttribute('preserveAspectRatio','none');
+    // grid lines
+    for (let i=0;i<6;i++){ const y = 20 + i*(viewH-40)/5; const line=document.createElementNS(svgNS,'line'); line.setAttribute('x1',40); line.setAttribute('x2',viewW-20); line.setAttribute('y1',y); line.setAttribute('y2',y); line.setAttribute('stroke','rgba(255,255,255,0.03)'); line.setAttribute('stroke-width','1'); svg.appendChild(line);} 
+    // generate sample data (random walk)
+    const points = []; let val=100; for(let i=0;i<60;i++){ val += (Math.random()-0.45)*2.8; points.push(val); }
+    const min = Math.min(...points), max = Math.max(...points);
+    const pathD = points.map((v,i)=>{ const x = 40 + i*(viewW-60)/(points.length-1); const y = 20 + (1-(v-min)/(max-min))*(viewH-40); return `${i===0?'M':'L'} ${x.toFixed(2)} ${y.toFixed(2)}`; }).join(' ');
+    const path = document.createElementNS(svgNS,'path'); path.setAttribute('d',pathD); path.setAttribute('fill','none'); path.setAttribute('stroke','url(#grad)'); path.setAttribute('stroke-width','2.2'); path.setAttribute('stroke-linecap','round'); path.setAttribute('stroke-linejoin','round'); path.setAttribute('class','mv-path');
+    const defs = document.createElementNS(svgNS,'defs'); const lin = document.createElementNS(svgNS,'linearGradient'); lin.setAttribute('id','grad'); lin.setAttribute('x1','0'); lin.setAttribute('x2','1'); lin.setAttribute('y1','0'); lin.setAttribute('y2','0'); const s1=document.createElementNS(svgNS,'stop'); s1.setAttribute('offset','0%'); s1.setAttribute('stop-color','rgba(124,58,237,0.9)'); const s2=document.createElementNS(svgNS,'stop'); s2.setAttribute('offset','100%'); s2.setAttribute('stop-color','rgba(0,242,254,0.9)'); lin.appendChild(s1); lin.appendChild(s2); defs.appendChild(lin); svg.appendChild(defs);
+    svg.appendChild(path);
+    // draw small points
+    points.forEach((v,i)=>{ const x = 40 + i*(viewW-60)/(points.length-1); const y = 20 + (1-(v-min)/(max-min))*(viewH-40); const c = document.createElementNS(svgNS,'circle'); c.setAttribute('cx',x); c.setAttribute('cy',y); c.setAttribute('r',2.2); c.setAttribute('fill','rgba(255,255,255,0.06)'); svg.appendChild(c); });
 
-  MARKET_TICKERS.forEach(t => {
-    const d = map[t.symbol];
-    const tile = document.createElement('div'); tile.className = 'market-tile rv';
-    const header = document.createElement('div'); header.className = 'mt-header';
-    const sym = document.createElement('div'); sym.className = 'mt-symbol'; sym.textContent = t.label;
-    const name = document.createElement('div'); name.className = 'mt-name'; name.textContent = d ? (d.name || d.symbol) : t.symbol;
-    header.appendChild(sym); header.appendChild(name);
+    el.appendChild(svg);
 
-    const price = document.createElement('div'); price.className = 'mt-price'; price.textContent = d && d.price !== null ? (d.price + (d.currency ? ' ' + d.currency : '')) : '—';
-
-    const change = document.createElement('div'); change.className = 'mt-change';
-    if (d && d.change !== null) {
-      const cls = d.change > 0 ? 'up' : (d.change < 0 ? 'down' : '');
-      change.innerHTML = `<span class="${cls}">${d.change.toFixed(2)}</span> <span class="${cls}">(${d.changePercent ? d.changePercent.toFixed(2) + '%' : ''})</span>`;
-    } else {
-      change.textContent = '';
+    // animate path draw unless user prefers reduced motion
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced) {
+      const len = path.getTotalLength();
+      path.style.strokeDasharray = len;
+      path.style.strokeDashoffset = len;
+      path.getBoundingClientRect();
+      path.style.transition = 'stroke-dashoffset 1.6s ease-out';
+      requestAnimationFrame(()=>{ path.style.strokeDashoffset = '0'; });
     }
+  }
 
-    const foot = document.createElement('div'); foot.className = 'mt-foot';
-    const state = document.createElement('div'); state.textContent = d && d.marketState ? d.marketState : 'Data unavailable';
-    const updated = document.createElement('div'); updated.textContent = d && d.lastUpdate ? new Date(d.lastUpdate).toLocaleTimeString() : '';
-    foot.appendChild(state); foot.appendChild(updated);
-
-    tile.appendChild(header);
-    tile.appendChild(price);
-    tile.appendChild(change);
-    tile.appendChild(foot);
-    grid.appendChild(tile);
-    try{ rvO.observe(tile); }catch(e){}
-  });
+  // Intersection observers
+  try {
+    const io = new IntersectionObserver(entries=>{ entries.forEach(e=>{ if (e.isIntersecting){ if (e.target.id==='market-vis') drawMarketVis(e.target); if (e.target.id==='corr-vis') drawCorrelation(e.target); io.unobserve(e.target); }}); },{threshold:0.18});
+    if (mvEl) io.observe(mvEl);
+    if (corrEl) io.observe(corrEl);
+  } catch (e) {
+    // fallback: draw immediately
+    drawCorrelation(corrEl); drawMarketVis(mvEl);
+  }
 }
 
-// bootstrap market rendering and periodic refresh
-renderMarket();
-setInterval(renderMarket, 60 * 1000);
+// Initialize the trading section visuals
+renderTradingSection();
 
 
 function renderCurrently() {

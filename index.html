@@ -234,21 +234,72 @@
 <!-- MARKET / TRADING -->
 <section id="market">
   <div class="amb" style="width:300px;height:300px;top:0;left:0;background:rgba(124,58,237,.04)"></div>
-  <div class="stag rv">MARKETS</div>
-  <h2 class="stitle rv d1">Markets & <span>Trading</span></h2>
-  <p class="ssub rv d2">A concise, professional snapshot of my market activity and live price data. Figures below reflect personal trading volume and market quotes may be delayed.</p>
+  <div class="stag rv">TRADING & MARKETS</div>
+  <h2 class="stitle rv d1">Exploring financial markets through <span>data</span>, quantitative analysis and technology.</h2>
+  <p class="ssub rv d2">A compact market intelligence dashboard showcasing my approach to market research, correlation analysis and data-driven trading experiments.</p>
 
-  <div class="market-top rv d3">
-    <div class="m-metric">
-      <div class="m-val">₹1L+</div>
-      <div class="m-label">Trading Volume</div>
-      <div class="m-sub">Intraday · IPO participation</div>
+  <div id="market-section" class="market-panel rv d3">
+    <div class="market-left">
+      <div class="mi-card">
+        <div class="mi-label">MARKET INTELLIGENCE</div>
+        <h3 class="mi-title">Exploring equities, market relationships, portfolio diversification and data-driven investment analysis.</h3>
+        <div class="mi-tags">
+          <span class="tag">EQUITIES</span>
+          <span class="tag">MARKET ANALYSIS</span>
+          <span class="tag">CORRELATION</span>
+          <span class="tag">RISK</span>
+          <span class="tag">PORTFOLIO</span>
+          <span class="tag">DATA ANALYTICS</span>
+        </div>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric-card">
+          <div class="m-val">₹1L+</div>
+          <div class="m-label">Trading Volume Analyzed</div>
+        </div>
+        <div class="metric-card">
+          <div class="m-val">STOCK ANALYSIS</div>
+          <div class="m-label">Correlation & Trend Research</div>
+        </div>
+        <div class="metric-card">
+          <div class="m-val">DATA-DRIVEN</div>
+          <div class="m-label">Market Analysis Approach</div>
+        </div>
+      </div>
+
+      <div class="featured-project">
+        <div class="fp-head">
+          <div class="fp-title">STOCK CORRELATION ANALYZER</div>
+          <div class="fp-tech">Python · Flask · NumPy · Pandas · yFinance · Matplotlib</div>
+        </div>
+        <div class="fp-body">
+          <p>Analyzes relationships between stocks using historical market data and correlation analysis.</p>
+          <div class="corr-vis" id="corr-vis" aria-hidden="true"></div>
+        </div>
+        <div class="fp-cta">
+          <a class="proj-btn" href="#" title="Project link">Links will be available soon....</a>
+        </div>
+      </div>
     </div>
-    <div class="m-note">Only exact personal figures supplied are shown — this is not financial advice.</div>
-  </div>
 
-  <div class="market-grid rv d4" id="market-grid">
-    <!-- Tiles injected by script.js -->
+    <div class="market-right">
+      <div class="market-visual-card">
+        <div class="mv-label">MARKET VISUALIZATION</div>
+        <div class="mv-sub">Decorative sample showing market dynamics — not live data.</div>
+        <div id="market-vis" class="market-vis" aria-hidden="true"></div>
+      </div>
+
+      <div class="market-focus">
+        <div class="focus-title">WHAT I EXPLORE</div>
+        <ul class="focus-list">
+          <li><span class="f-num">01</span><div><b>Equities</b><div class="f-desc">Understanding stock price behavior and relationships.</div></div></li>
+          <li><span class="f-num">02</span><div><b>Correlation</b><div class="f-desc">Identifying relationships between securities.</div></div></li>
+          <li><span class="f-num">03</span><div><b>Portfolio</b><div class="f-desc">Diversification & risk concepts.</div></div></li>
+          <li><span class="f-num">04</span><div><b>Analytics</b><div class="f-desc">Python-driven market studies.</div></div></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
