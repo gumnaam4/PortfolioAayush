@@ -866,6 +866,15 @@ const EXPERIENCE = [
   description: 'Completed Tally Solutions’ technical online assessment as part of the selection process.',
   link: null,
 },
+{
+  category: 'Hiring & Technical Assessments',
+  organization: 'Adobe',
+  role: 'Online Assessment',
+  date: '2026',
+  status: 'Technical Assessment',
+  description: 'Completed Adobe’s technical online assessment through the Adobe University Hackathon as part of the selection process.',
+  link: null,
+}
 ];
 
 /* ------------------------------------------------------------------
