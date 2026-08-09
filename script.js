@@ -158,7 +158,7 @@ const PROJECTS = [
 
 {
   id: 'student-finance',
-  title: 'Student Finance Management',
+  title: 'FinTrack',
   short: 'Finance management platform for tracking student expenses, budgets, and spending habits.',
   problem: 'Helps students manage daily expenses and maintain better control over their budgets.',
   tech: ['Python', 'Django', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
