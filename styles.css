@@ -321,7 +321,12 @@ h1.big .l2{color:var(--accent);display:block}
 .certgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.2rem}
 .ccard{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:all .2s ease;position:relative}
 .ccard:hover{transform:translateY(-4px);border-color:var(--border-hover);box-shadow:0 12px 24px rgba(0,0,0,0.35)}
-.cbanner{height:120px;background:rgba(255,255,255,0.01);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:2.6rem;position:relative;overflow:hidden}
+.cbanner{height:120px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:2.6rem;position:relative;overflow:hidden;padding:1rem}
+/* Subtle gradient banner for certificates to improve polish */
+.cbanner{background:linear-gradient(180deg,rgba(124,58,237,0.06),rgba(0,242,254,0.03));}
+.cbanner .cert-icon{font-size:1.9rem;opacity:0.95}
+.cbanner .cert-banner-icon{width:48px;height:48px;color:var(--accent);opacity:0.95}
+.cbanner .cert-placeholder-badge{position:absolute;top:.6rem;right:.6rem}
 .cbody{padding:1.4rem;position:relative;z-index:1}
 .cissuer{font-family:var(--font-mono);font-size:.72rem;color:var(--accent);letter-spacing:.04em;margin-bottom:.4rem;text-transform:uppercase}
 .ctitle{font-family:var(--font-sans);font-size:1rem;font-weight:600;line-height:1.4;color:var(--text);margin-bottom:.5rem}
@@ -339,6 +344,9 @@ h1.big .l2{color:var(--accent);display:block}
 .cert-btn-dl:hover{color:var(--text);border-color:var(--border-hover);background:rgba(255,255,255,.04)}
 /* Stat rank line inside leetcode card */
 .stat-rank{font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim,#5a6270);margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--border)}
+
+/* Make LeetCode/global stat rank more visible */
+.stat-rank{color:var(--text);font-weight:600;font-size:.84rem}
 /* Stats status footer */
 #stats-status{font-family:var(--font-mono);font-size:.7rem;color:var(--text-dim,#5a6270);margin-top:.8rem;text-align:right;min-height:1.2em;transition:color .2s}
 /* Loading shimmer for stat numbers */

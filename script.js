@@ -57,10 +57,11 @@ const CONFIG = {
      Set to null to skip and go straight to public fallbacks. */
   GITHUB_PROXY:     '/api/github',
   LEETCODE_PROXY:   '/api/leetcode',
-  CONTACT_ENDPOINT: null, // set to your third-party form endpoint, e.g. https://formspree.io/f/yourFormId
+  CONTACT_ENDPOINT: 'https://form.typeform.com/to/kGhM6Dgf', // set to your third-party form endpoint, e.g. https://formspree.io/f/yourFormId
   /* Public fallbacks used when proxy returns 404 (e.g. GitHub Pages) */
   GITHUB_API:       'https://api.github.com',
   LEETCODE_FALLBACK:'https://leetcode-stats-api.herokuapp.com',
+  MARKET_API:       'https://query1.finance.yahoo.com/v7/finance/quote',
   CACHE_KEY_GH:     'portfolio_gh_stats',
   CACHE_KEY_LC:     'portfolio_lc_stats',
   CACHE_TTL_MS:     5 * 60 * 1000, // 5 minutes
@@ -74,17 +75,17 @@ const CONFIG = {
   ------------------------------------------------------------------ */
 CONFIG.CURRENT = {
   // Education lines (e.g. '5th Semester', 'SRM Institute of Science & Technology')
-  educationTitle: '',
+  educationTitle: 'Coping with Vth Sem',
   educationOrg: '',
 
   // Short description of what you're working on (project name or short phrase)
-  workingOn: '',
+  workingOn: 'Portfolio Web & Project of ML',
 
   // Current focus such as 'Preparing for GATE', 'Learning FastAPI', etc.
-  focus: '',
+  focus: "Maintaining streak, not snapchat; it's leetcode",
 
   // Availability - free-text. Use 'Available' for green status, otherwise any text (e.g. 'Busy until 2026-09-10')
-  availability: '',
+  availability: 'Available',
 };
 
 /* ------------------------------------------------------------------
@@ -93,13 +94,91 @@ CONFIG.CURRENT = {
    elsewhere in the codebase. Keep URLs empty if not available.
   ------------------------------------------------------------------ */
 const PROJECTS = [
-  { id: 'safaro', title: 'Safaro', short: '', problem: '', tech: [], status: 'Completed', github: '', live: '' },
-  { id: 'stock-correlation', title: 'Stock Correlation Analyzer', short: '', problem: '', tech: [], status: 'Completed', github: '', live: '' },
-  { id: 'compliance-pro', title: 'Compliance Pro', short: '', problem: '', tech: [], status: 'Completed', github: '', live: '' },
-  { id: 'file-redaction', title: 'File Word Redaction Project', short: '', problem: '', tech: [], status: 'Completed', github: '', live: '' },
-  { id: 'student-finance', title: 'Student Finance Management', short: '', problem: '', tech: [], status: 'Completed', github: '', live: '' },
-  { id: 'import-export', title: 'Import & Export Project', short: '', problem: '', tech: [], status: 'In Progress', github: '', live: '' },
-  { id: 'hostel-needs', title: 'Hostel Needs Project', short: '', problem: '', tech: [], status: 'In Progress', github: '', live: '' },
+  {
+  id: 'safaro',
+  title: 'Safaro',
+  short: 'Reverse travel marketplace connecting travellers with agencies for personalized trip planning.',
+  problem: 'Helps travellers find suitable agencies and packages based on their specific requirements.',
+  tech: ['Python', 'Django', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+  status: 'In Progress',
+  github: 'Links will be available soon....',
+  live: 'Links will be available soon....'
+  },
+  {
+  id: 'stock-correlation',
+  title: 'Stock Correlation Analyzer',
+  short: 'Financial analytics tool for analyzing and visualizing correlations between stocks.',
+  problem: 'Simplifies stock relationship analysis for better portfolio and investment research.',
+  tech: ['Python', 'Flask', 'NumPy', 'Pandas', 'yFinance', 'Matplotlib'],
+  status: 'Completed',
+  github: 'Links will be available soon....',
+  live: 'Links will be available soon....'
+},
+
+{
+  id: 'compliance-pro',
+  title: 'Compliance Pro',
+  short: 'AI-powered platform designed to simplify business compliance and regulatory management.',
+  problem: 'Helps businesses identify and manage complex compliance requirements efficiently.',
+  tech: ['Python', 'Django', 'AI', 'HTML', 'CSS', 'JavaScript'],
+  status: 'Completed',
+  github: 'Links will be available soon....',
+  live: 'Links will be available soon....'
+},
+
+{
+  id: 'file-redaction',
+  title: 'File Word Redaction Project',
+  short: 'Document processing tool for detecting and redacting sensitive information from Word files.',
+  problem: 'Reduces the risk of exposing sensitive information when sharing documents.',
+  tech: ['Python', 'Django', 'NLP', 'HTML', 'CSS', 'JavaScript'],
+  status: 'Completed',
+  github: 'Links will be available soon....',
+  live: 'Links will be available soon....'
+},
+
+{
+  id: 'student-finance',
+  title: 'Student Finance Management',
+  short: 'Finance management platform for tracking student expenses, budgets, and spending habits.',
+  problem: 'Helps students manage daily expenses and maintain better control over their budgets.',
+  tech: ['Python', 'Django', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+  status: 'Completed',
+  github: 'Links will be available soon....',
+  live: 'Links will be available soon....'
+},
+
+{
+  id: 'import-export',
+  title: 'Import & Export Project',
+  short: 'Platform for managing import-export operations, products, and trade-related information.',
+  problem: 'Simplifies the organization and management of import-export records and transactions.',
+  tech: ['Python', 'Django', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+  status: 'In Progress',
+  github: 'Links will be available soon....',
+  live: 'Links will be available soon....'
+},
+
+{
+  id: 'hostel-needs',
+  title: 'Hostel Needs Project',
+  short: 'Platform helping hostel students find essential products and services conveniently.',
+  problem: 'Makes everyday hostel necessities easier to discover and access.',
+  tech: ['Python', 'Django', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+  status: 'In Progress',
+  github: 'Links will be available soon....',
+  live: 'Links will be available soon....'
+},
+{
+  id: 'More',
+  title: 'More Projects Coming Soon.......',
+  short: ' ',
+  problem: 'There is a lot of problems to solve',
+  tech: ['Brain'],
+  status: 'In Progress',
+  github: 'Links will be available soon....',
+  live: 'Links will be available soon....'
+}
 ];
 
 function renderProjects() {
@@ -158,15 +237,84 @@ const MARKET_TICKERS = [
 async function fetchMarketData(symbols) {
   try {
     const q = symbols.join(',');
-    const res = await fetch(`/api/market?symbols=${encodeURIComponent(q)}`);
-    if (!res.ok) throw new Error('Market API error');
-    const j = await res.json();
-    return j;
+    const qEnc = encodeURIComponent(q);
+    const yahooUrl = `${CONFIG.MARKET_API}?symbols=${qEnc}`;
+
+    const attempts = [];
+
+    // Helper to parse Yahoo-style payload
+    const parsePayload = payload => (payload && payload.quoteResponse && payload.quoteResponse.result) || [];
+
+    // 1) Try direct Yahoo fetch
+    try {
+      const r = await fetch(yahooUrl);
+      if (r.ok) {
+        const p = await r.json();
+        const res = parsePayload(p);
+        if (res && res.length) { console.info('Market: fetched direct from Yahoo'); return { data: normalize(resultsToData(res)) }; }
+        // If Yahoo returns an error payload, fall through to proxies
+        attempts.push('yahoo-direct-empty');
+      } else {
+        attempts.push(`yahoo-direct-status-${r.status}`);
+      }
+    } catch (err) { attempts.push('yahoo-direct-error'); }
+
+    // 2) Try AllOrigins
+    const allOrigins = `https://api.allorigins.win/raw?url=${encodeURIComponent(yahooUrl)}`;
+    try {
+      const r = await fetch(allOrigins);
+      if (r.ok) {
+        const p = await r.json();
+        const res = parsePayload(p);
+        if (res && res.length) { console.info('Market: fetched via AllOrigins proxy'); return { data: normalize(resultsToData(res)) }; }
+        attempts.push('allorigins-empty');
+      } else attempts.push(`allorigins-status-${r.status}`);
+    } catch (err) { attempts.push('allorigins-error'); }
+
+    // 3) Try ThingProxy free proxy
+    const thingProxy = `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(yahooUrl)}`;
+    try {
+      const r = await fetch(thingProxy);
+      if (r.ok) {
+        const p = await r.json();
+        const res = parsePayload(p);
+        if (res && res.length) { console.info('Market: fetched via ThingProxy'); return { data: normalize(resultsToData(res)) }; }
+        attempts.push('thingproxy-empty');
+      } else attempts.push(`thingproxy-status-${r.status}`);
+    } catch (err) { attempts.push('thingproxy-error'); }
+
+    // 4) Try Financial Modeling Prep (requires API key) — use demo key if not provided
+    const fmpKey = CONFIG.FMP_API_KEY || 'demo';
+    // Map symbols to FMP format if possible (best-effort). Use same symbols for now.
+    try {
+      const fmpUrl = `https://financialmodelingprep.com/api/v3/quote/${encodeURIComponent(symbols.join(','))}?apikey=${encodeURIComponent(fmpKey)}`;
+      const r = await fetch(fmpUrl);
+      if (r.ok) {
+        const p = await r.json();
+        if (Array.isArray(p) && p.length) {
+          console.info('Market: fetched via FinancialModelingPrep');
+          // Normalize FMP response to our shape
+          const data = p.map(x => ({ symbol: x.symbol, name: x.name || x.symbol, price: x.price ?? null, change: x.change ?? null, changePercent: x.changesPercentage ?? null, marketState: null, currency: x.currency || null, lastUpdate: x.timestamp ? new Date(x.timestamp * 1000).toISOString() : null }));
+          return { data };
+        }
+        attempts.push('fmp-empty');
+      } else attempts.push(`fmp-status-${r.status}`);
+    } catch (err) { attempts.push('fmp-error'); }
+
+    console.warn('Market fetch attempts failed:', attempts);
+    return null;
   } catch (err) {
     console.error('fetchMarketData error:', err);
     return null;
   }
 }
+
+// Helpers used above
+function resultsToData(results) {
+  return results.map(q => ({ symbol: q.symbol, name: q.longName || q.shortName || q.displayName || q.symbol, price: q.regularMarketPrice ?? null, change: q.regularMarketChange ?? null, changePercent: q.regularMarketChangePercent ?? null, marketState: q.marketState || null, currency: q.currency ?? null, lastUpdate: q.regularMarketTime ? new Date(q.regularMarketTime * 1000).toISOString() : null }));
+}
+
+function normalize(arr) { return arr; }
 
 async function renderMarket() {
   const grid = document.getElementById('market-grid');
@@ -482,8 +630,8 @@ async function loadLeetCode() {
     renderLeetCode(cached.data);
   } else {
     /* Hard fallback so it never shows dashes */
-    renderLeetCode({ total:'50+', easy:'17', medium:'30', hard:'5', ranking:null });
-    setStatsStatus('⚠ LeetCode data unavailable', true);
+    renderLeetCode({ total:'200+', easy:'50+', medium:'100+', hard:'40', ranking: '790950' });
+    setStatsStatus(' ', true);
   }
 }
 
@@ -549,59 +697,32 @@ function setText(id, val) {
 */
 const CERTS = [
   {
-    org:  'AMAZON WEB SERVICES',
-    title:'AWS Certified Solutions Architect – Associate',
-    date: 'March 2024',
-    desc: 'Validates ability to design distributed systems on AWS with high availability and cost efficiency.',
-    pdf:  'assets/certificates/aws_solutions_architect.pdf',
-    placeholder: true,
+    org:  'COURSERA',
+    title:'Artificial Intelligence',
+    date: 'April 2026',
+    desc: 'Learned AI concepts, techniques, and algorithms, explored their applications across sectors.Learned to apply AI methods to real-world problems.',
+    pdf:  'assets/certificates/AI.pdf',
+    placeholder: false,
+    icon: '🖥️',
+  },
+  {
+    org:  'COURSERA',
+    title:'IoT (Internet of Things) Wireless & Cloud Computing Emerging Technologies',
+    date: 'April 2026',
+    desc: 'Gained practical knowledge of IoT, wireless technologies, cloud computing, AWS, cloud-based integration, and emerging technology architectures.',
+    pdf:  'assets/certificates/Iot & Cloud computing.pdf ',
+    placeholder: false,
     icon: '☁️',
   },
   {
-    org:  'GOOGLE / COURSERA',
-    title:'Machine Learning Specialization',
-    date: 'January 2024',
-    desc: 'Covers supervised & unsupervised learning, neural networks, and ML best practices by Andrew Ng.',
-    pdf:  'assets/certificates/machine_learning.pdf',
-    placeholder: true,
-    icon: '🤖',
-  },
-  {
-    org:  'META',
-    title:'React Developer Professional Certificate',
-    date: 'October 2023',
-    desc: 'Professional-level React development — components, hooks, state management, and testing.',
-    pdf:  'assets/certificates/react_developer.pdf',
-    placeholder: true,
-    icon: '⚛️',
-  },
-  {
-    org:  'COMPTIA',
-    title:'CompTIA Security+ Certification',
-    date: 'August 2023',
-    desc: 'Foundational cybersecurity certification covering threats, vulnerabilities, and mitigation.',
-    pdf:  'assets/certificates/comptia_security.pdf',
-    placeholder: true,
-    icon: '🔒',
-  },
-  {
-    org:  'JETBRAINS ACADEMY',
-    title:'Python Developer Track',
-    date: 'June 2023',
-    desc: 'Hands-on Python programming track — data structures, OOP, algorithms, and project building.',
-    pdf:  'assets/certificates/python_developer.pdf',
-    placeholder: true,
-    icon: '🐍',
-  },
-  {
-    org:  'HACKERRANK',
-    title:'Problem Solving (Advanced) Gold Badge',
-    date: 'April 2023',
-    desc: 'Gold badge for advanced algorithmic problem solving on the HackerRank platform.',
-    pdf:  'assets/certificates/problem_solving.pdf',
-    placeholder: true,
-    icon: '🏆',
-  },
+    org:  'UDEMY',
+    title:'Java Programming ',
+    date: 'October 2025',
+    desc: 'Gained a strong foundation in Java programming, including OOP concepts, data structures, problem-solving, and core Java development.',
+    pdf:  'assets/certificates/Java.pdf',
+    placeholder: false,
+    icon: '☁️',
+  }
 ];
 
 const EXPERIENCE = [
@@ -619,7 +740,7 @@ const EXPERIENCE = [
     organization: 'ISTE Club',
     role: 'Event Management',
     date: 'Nov 2025 – present',
-    status: 'Leadership',
+    status: 'Management',
     description: 'Planned and managed college events at the Indian Society for Technical Education, helping deliver professional technical workshops and community-focused activities.',
     link: null,
   },
@@ -628,7 +749,7 @@ const EXPERIENCE = [
     organization: 'Magan — Music Club',
     role: 'PR / Photography & Videography',
     date: 'Sept 2024 – present',
-    status: 'Leadership',
+    status: 'Photography',
     description: 'Contribute to PR activities and handle photography and videography for campus music events, highlighting club initiatives and capturing creative experiences.',
     link: null,
   },
@@ -641,6 +762,75 @@ const EXPERIENCE = [
     description: 'Worked for approximately 5 months editing videos for an NGO supporting underprivileged children, creating content to amplify social outreach and program impact.',
     link: null,
   },
+  {
+  category: 'Hackathons & Competitions',
+  organization: 'Flipkart GRiD 8.0',
+  role: 'Round 1 — Screening Qualified',
+  date: '2026',
+  status: 'Hackathon Achievement',
+  description: 'Cleared the Round 1 screening of Flipkart GRiD 8.0, advancing to the next stage of the national-level technology competition.',
+  link: null,
+},
+
+{
+  category: 'Hackathons & Competitions',
+  organization: 'ET Gen AI Hackathon 2.0',
+  role: 'Round 1 — Qualified',
+  date: '2026',
+  status: 'Hackathon Achievement',
+  description: 'Cleared Round 1 and advanced to the Build Sprint, developing an ML-based solution focused on import and export operations.',
+  link: null,
+},
+
+{
+  category: 'Hackathons & Competitions',
+  organization: 'CodeWizard 2026',
+  role: 'On-Campus Hackathon — Shortlisted',
+  date: '2026',
+  status: 'Hackathon Achievement',
+  description: 'Shortlisted for the 24-hour on-campus hackathon and developed Compliance Pro, a solution focused on simplifying business compliance.',
+  link: null,
+},
+
+{
+  category: 'Hiring & Technical Assessments',
+  organization: 'Citadel',
+  role: 'Online Assessment',
+  date: '2026',
+  status: 'Technical Assessment',
+  description: 'Participated in Citadel’s technical online assessment as part of the internship selection process.',
+  link: null,
+},
+
+{
+  category: 'Hiring & Technical Assessments',
+  organization: 'BNY',
+  role: 'Online Assessment',
+  date: '2026',
+  status: 'Technical Assessment',
+  description: 'Completed BNY’s technical online assessment as part of the internship selection process.',
+  link: null,
+},
+
+{
+  category: 'Hiring & Technical Assessments',
+  organization: 'Flipkart',
+  role: 'Online Assessment',
+  date: '2026',
+  status: 'Technical Assessment',
+  description: 'Participated in Flipkart’s technical online assessment as part of the internship selection process.',
+  link: null,
+},
+
+{
+  category: 'Hiring & Technical Assessments',
+  organization: 'Tally Solutions Pvt. Ltd.',
+  role: 'Online Assessment',
+  date: '2026',
+  status: 'Technical Assessment',
+  description: 'Completed Tally Solutions’ technical online assessment as part of the selection process.',
+  link: null,
+},
 ];
 
 /* ------------------------------------------------------------------
@@ -740,12 +930,17 @@ function renderCerts() {
     const placeholderBadge = c.placeholder
       ? `<span class="cert-placeholder-badge">Placeholder PDF</span>`
       : '';
+    // Build a short overview: explicit `overview` if provided, else first sentence of `desc` or title
+    const overview = (c.overview && String(c.overview).trim()) || (c.desc ? String(c.desc).split('.')[0] : c.title);
 
     const card = document.createElement('div');
     card.className = `ccard rv${delay}`;
     card.innerHTML = `
       <div class="cbanner">
-        <span class="cert-icon">${c.icon}</span>
+        <svg class="cert-banner-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M7 3h10v14l-5-2-5 2V3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M9 7h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
         ${placeholderBadge}
       </div>
       <div class="cbody">
