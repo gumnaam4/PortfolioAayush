@@ -38,7 +38,7 @@ window.addEventListener('scroll',()=>{
   const loader=document.getElementById('page-loader');
   const textEl=loader?.querySelector('.loader-text');
   if (!loader || !textEl) return;
-  const name='Loading....';
+  const name='Initializing....';
   let idx=0;
   textEl.textContent='';
   const typeNext=()=>{
@@ -169,9 +169,9 @@ const PROJECTS = [
 
 {
   id: 'import-export',
-  title: 'Import & Export Project',
-  short: 'Platform for managing import-export operations, products, and trade-related information.',
-  problem: 'Simplifies the organization and management of import-export records and transactions.',
+  title: 'AI-Driven Energy Supply Chain Resilience for Import Dependent Economies ',
+  short: 'AI-powered system that predicts energy supply disruptions and recommends strategies to strengthen resilience in import-dependent economies.',
+  problem: 'Import-dependent economies are vulnerable to geopolitical conflicts, price volatility, and supply disruptions, making it difficult to anticipate energy shortages and ensure stable supply.',
   tech: ['Python', 'Django', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
   status: 'In Progress',
   github: 'Links will be available soon....',
@@ -180,7 +180,7 @@ const PROJECTS = [
 
 {
   id: 'hostel-needs',
-  title: 'Hostel Needs Project',
+  title: 'Hostel related Project(Name ye to Finalised)',
   short: 'Platform helping hostel students find essential products and services conveniently.',
   problem: 'Makes everyday hostel necessities easier to discover and access.',
   tech: ['Python', 'Django', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
@@ -193,7 +193,7 @@ const PROJECTS = [
   title: 'More Projects Coming Soon.......',
   short: ' ',
   problem: 'There is a lot of problems to solve',
-  tech: ['Brain'],
+  tech: ['Braining...'],
   status: 'In Progress',
   github: 'Links will be available soon....',
   live: 'Links will be available soon....'
@@ -755,6 +755,15 @@ const CERTS = [
     date: 'October 2025',
     desc: 'Gained a strong foundation in Java programming, including OOP concepts, data structures, problem-solving, and core Java development.',
     pdf:  'assets/certificates/Java.pdf',
+    placeholder: false,
+    icon: '☁️',
+  },
+  {
+    org:  ' ',
+    title:'More certificates/certifications in progress',
+    date: ' ',
+    desc: 'Will update upon completion',
+    pd:  'project.html ',
     placeholder: false,
     icon: '☁️',
   }
