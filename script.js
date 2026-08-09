@@ -758,15 +758,6 @@ const CERTS = [
     placeholder: false,
     icon: '☁️',
   },
-  {
-    org:  ' ',
-    title:'More certificates/certifications in progress',
-    date: ' ',
-    desc: 'Will update upon completion',
-    pd:  'project.html ',
-    placeholder: false,
-    icon: '☁️',
-  }
 ];
 
 const EXPERIENCE = [
