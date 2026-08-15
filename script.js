@@ -798,6 +798,15 @@ const EXPERIENCE = [
     link: null,
   },
   {
+    category: 'Professional / Project',
+    organization: 'GateBuddy',
+    role: 'Campus PR & Outreach Associate',
+    date: 'August 2026 – present',
+    status: 'Professional Experience',
+    description: 'Driving campus outreach and student engagement initiatives while supporting Gatebuddy’s PR, community building, and growth efforts.',
+    link: null,
+  },
+  {
   category: 'Hackathons & Competitions',
   organization: 'Flipkart GRiD 8.0',
   role: 'Round 1 — Screening Qualified',
