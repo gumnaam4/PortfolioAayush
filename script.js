@@ -732,6 +732,15 @@ function setText(id, val) {
 */
 const CERTS = [
   {
+    org:  'HackerRank',
+    title:'Python',
+    date: 'August 2026',
+    desc: 'Validated foundational Python skills through HackerRank, covering core programming concepts, problem-solving, and Python fundamentals.',
+    pdf:  'assets/certificates/python_basic certificate.pdf',
+    placeholder: false,
+    icon: '',
+  },
+  {
     org:  'COURSERA',
     title:'Artificial Intelligence',
     date: 'April 2026',
