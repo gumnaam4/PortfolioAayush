@@ -741,6 +741,15 @@ const CERTS = [
     icon: '',
   },
   {
+    org:  'HackerRank',
+    title:'SQL (Basic)',
+    date: 'August 2026',
+    desc: 'Demonstrated foundational SQL skills through HackerRank, covering queries, filtering, sorting, joins, and basic database operations.',
+    pdf:  'assets/certificates/sql_basic certificate.pdf',
+    placeholder: false,
+    icon: '',
+  }
+  {
     org:  'COURSERA',
     title:'Artificial Intelligence',
     date: 'April 2026',
