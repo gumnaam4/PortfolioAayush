@@ -748,7 +748,7 @@ const CERTS = [
     pdf:  'assets/certificates/sql_basic certificate.pdf',
     placeholder: false,
     icon: '',
-  }
+  },
   {
     org:  'COURSERA',
     title:'Artificial Intelligence',
