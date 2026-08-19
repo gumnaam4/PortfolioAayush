@@ -94,11 +94,11 @@ const CONFIG = {
   ------------------------------------------------------------------ */
 CONFIG.CURRENT = {
   // Education lines (e.g. '5th Semester', 'SRM Institute of Science & Technology')
-  educationTitle: 'Coping with Vth Sem',
+  educationTitle: 'Coping Up with Vth Sem',
   educationOrg: '',
 
   // Short description of what you're working on (project name or short phrase)
-  workingOn: 'Portfolio Web & Project of ML',
+  workingOn: 'Personal AI OS & Project of ML',
 
   // Current focus such as 'Preparing for GATE', 'Learning FastAPI', etc.
   focus: "Maintaining streak, not snapchat; it's leetcode",
